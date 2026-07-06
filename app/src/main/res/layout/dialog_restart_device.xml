@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@drawable/dialog_background_rounded">
+
+    <ImageView
+        android:id="@+id/caution_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/caution_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/dialog_blue"/>
+
+    <TextView
+        android:id="@+id/deconnect_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="차량 연결이 되지 않습니다.\n '초기화'를 누르면 재시작 됩니다."
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="7dp"
+        android:lineSpacingExtra="3dp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginBottom="20dp"
+        android:background="@color/dialog_blue"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#AEB6FE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/dialog_background_rounded">
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="초기화"
+            android:textSize="17dp"
+            android:padding="15dp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/roboto_regular"
+            android:backgroundTint="@color/dialog_blue"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+</LinearLayout>

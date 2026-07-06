@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Privacy V1</string>
+    <string name="acc_desc">페어링 "등록" 및 연락처/메시지 "허용" 팝업을 정확 매칭 시 자동으로 눌러줍니다.</string>
+    <string name="acc_summary">블루투스 등록·PBAP·MAP 자동 허용</string>
+    <string name="underlined_text"><u>밑줄이 그어진 텍스트</u></string>
+</resources>

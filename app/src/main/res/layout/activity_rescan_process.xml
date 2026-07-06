@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.ReConnectionActivity">
+
+    <!-- ACAT 로고 -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="50dp"
+        android:background="#00000000"
+        android:contentDescription="Logo"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/acat_logo_spizen_ver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- 가운데 아이콘 -->
+    <ImageView
+        android:id="@+id/center_icon"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/blt_icon"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="130dp"/>
+
+    <TextView
+        android:id="@+id/scanfail_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="차량의 블루투스 목록을 확인해주세요."
+        android:textColor="#798EE5"
+        android:textSize="22sp"
+        android:fontFamily="@font/roboto_bolded"
+        app:layout_constraintTop_toBottomOf="@id/center_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="26dp"/>
+
+    <TextView
+        android:id="@+id/request_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="이전 사용자의 기기를 삭제한 후 재연결 해주세요.\n 만약 삭제할 기기가 없는 경우 '완료하기' 버튼을 눌러주세요"
+        android:textColor="@color/white"
+        android:lineSpacingExtra ="5dp"
+        android:textSize="19sp"
+        android:fontFamily="@font/roboto_regular"
+        app:layout_constraintTop_toBottomOf="@id/scanfail_message"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/request_message"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <Button
+            android:id="@+id/rescan_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="재연결하기"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/roboto_regular"
+            android:background="@drawable/gray_button"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"/>
+        <!-- 수직선 -->
+        <View
+            android:layout_width="25px"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/complete_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="완료하기"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_regular"
+            android:background="@drawable/button_background_rounded"
+            android:textAllCaps="false"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"-->
+    <!--        tools:targetApi="s" />-->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"
+        android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<!--    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS"/>-->
+<!--    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN"/>-->
+
+
+    <application
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_acat"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_acat_round"
+        android:supportsRtl="true"
+        android:theme="@style/Base.Theme.Privacy_V1"
+        tools:targetApi="31">
+<!--        파일도 함께 삭제필요구간-->
+        <receiver android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+            </intent-filter>
+        </receiver>
+<!--        <receiver-->
+<!--            android:name=".receiver.CP6DeviceAdminReceiver"-->
+<!--            android:permission="android.permission.BIND_DEVICE_ADMIN"-->
+<!--            android:exported="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.device_admin"-->
+<!--                android:resource="@xml/device_admin_receiver" />-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>-->
+<!--                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE"/>-->
+<!--&lt;!&ndash;                &lt;!&ndash; (필요 시) Device Admin이 비활성화될 때 수신하고 싶다면 추가 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED"/>&ndash;&gt;-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+        <service android:name=".service.MyForegroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"/>
+<!--        삭제필요구간-->
+        <service
+            android:name=".service.LogMonitoringService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".service.PairingAndAccessAutoClickService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true"
+
+            android:foregroundServiceType="specialUse">
+<!--            android:process=":accsvc"
+android:process=":acc"-->
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/acc_bt_auto_click_cfg"/>
+        </service>
+<!--        <service-->
+<!--            android:name=".service.PairingAndAccessAutoClickService"-->
+<!--            android:exported="false"-->
+<!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.accessibilityservice.AccessibilityService" />-->
+<!--            </intent-filter>-->
+<!--            <meta-data-->
+<!--                android:name="android.accessibilityservice"-->
+<!--                android:resource="@xml/acc_bt_auto_click_cfg" />-->
+<!--        </service>-->
+<!--        <activity-->
+<!--            android:name=".ui.activity.MainActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.BluetoothScaningActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.BluetoothReScaningActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.DeleteActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.ReConnectionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.ReScanActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.CompleteActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.FinalCompleteActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.auth.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.auth.AuthMainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.PrivacyStartActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.auth.MyPageActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.auth.CreditActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.PrivacyConfirmActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.CheckingBluetoothActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.carinfo.CarSelectActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.carinfo.MakerSelectActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.carinfo.ModelSelectActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.carinfo.YearSelectActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+
+
+
+
+
+    </application>
+
+</manifest>

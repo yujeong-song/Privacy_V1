@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@drawable/dialog_background_rounded">
+
+    <ImageView
+        android:id="@+id/caution_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/caution_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/dialog_blue"/>
+
+    <TextView
+        android:id="@+id/reset_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="원활한 시스템 작동을 위해 \n 재부팅 후 초기화 됩니다."
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:padding="7dp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginBottom="20dp"
+        android:background="@color/dialog_blue"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#AEB6FE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/dialog_background_rounded">
+
+        <!-- 수직선 -->
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/dialog_blue"
+            android:elevation="0dp"
+            android:fontFamily="@font/roboto_regular"
+            android:stateListAnimator="@null"
+            android:text="취소"
+            android:padding="15dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#AEB6FE" />
+
+        <!-- 취소 버튼 -->
+
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="초기화"
+            android:textSize="17dp"
+            android:padding="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/dialog_blue"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+</LinearLayout>

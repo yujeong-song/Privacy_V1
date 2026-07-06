@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="dark_purple">#3A3B66</color>
+    <color name="dialog_blue">#282A4C</color>
+    <color name="main_background">#0F1023</color>
+    <color name="button_background">#394797</color>
+    <color name="menu_background">#1F2C73</color>
+
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B6B6C8</color>
+
+    <color name="stroke_normal">#3A3A57</color>
+    <color name="stroke_selected">#7C4DFF</color>
+
+    <color name="item_bg_selected">#7C4DFF</color>
+    <color name="item_bg_normal">#00000000</color>
+
+    <!-- 리스트/아이템 선택 -->
+    <color name="border_white_40">#66FFFFFF</color>
+    <color name="pressed_white_20">#33FFFFFF</color>
+    <color name="selected_white_14">#22FFFFFF</color>
+
+    <!-- 로고 동그라미(기본/선택) -->
+    <color name="logo_ring_normal">#668AA8FF</color>   <!-- 연한 블루 링 -->
+    <color name="logo_ring_selected">#FF8AA8FF</color> <!-- 진한 블루 링 -->
+
+
+
+</resources>

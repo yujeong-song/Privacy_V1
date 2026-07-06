@@ -1,0 +1,9 @@
+{
+    "국내": {
+        "hyundai": "hyundai_data.json",
+        "genesis": "genesis_data.json",
+        "kia": "kia_data.json"
+    },
+"해외": {},
+"기타": {}
+}

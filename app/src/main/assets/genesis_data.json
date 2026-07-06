@@ -1,0 +1,68 @@
+{
+    "oem": "Genesis",
+    "lastUpdated": "2025-04-01",
+    "cars": [
+        {
+            "name": "G70",
+            "models": [
+                {
+                    "modelname": "G70 슈팅 브레이크",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 G70",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "GV70",
+            "models": [
+                {
+                    "modelname": "GV70",
+                    "years":[2020,2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"고급형6세대"
+                },
+                {
+                    "modelname": "Electrified G70",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"고급형6세대"
+                }
+            ]
+        },
+        {
+            "name": "G80",
+            "models": [
+                {
+                    "modelname": "디 올 뉴 G80",
+                    "years":[2020,2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"고급형6세대"
+                },
+                {
+                    "modelname": "디 올 뉴 Electrified G80",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"고급형6세대"
+                }
+            ]
+        },
+        {
+            "name": "GV80",
+            "models": [
+                {
+                    "modelname": "GV80",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"고급형6세대"
+                }
+            ]
+        }
+    ]
+}

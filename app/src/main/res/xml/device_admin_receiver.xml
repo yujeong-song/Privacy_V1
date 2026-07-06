@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 관리자로서 허용할 종류 -->
+    <style name="Theme.TAB_Credit_V0_5.LaunchAtBoot" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- 화면이 잠금상태여도 띄우기 -->
+        <item name="android:showWhenLocked">true</item>
+        <!-- 잠금화면 위에 Activity가 올라오면 화면 켜기 -->
+        <item name="android:turnScreenOn">true</item>
+        <!-- 화면 밝기나 상태바 등 원하는 속성 추가 -->
+    </style>
+    <uses-policies>
+        <!-- 암호 제어 권한을 사용하겠다는 예시 -->
+        <force-lock />
+        <wipe-data />
+        <limit-password />
+        <watch-login />
+        <reset-password />
+        <!-- 필요에 따라 다른 정책을 추가할 수 있음 -->
+    </uses-policies>
+</device-admin>

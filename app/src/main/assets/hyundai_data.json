@@ -1,0 +1,252 @@
+{
+    "brand": "hyundai",
+    "lastUpdated": "2025-08-25",
+    "cars": [
+        {
+            "name": "싼타페",
+            "models": [
+                {
+                    "modelname": "더 뉴 싼타페",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note": "표준형5W세대"
+                },
+                {
+                    "modelname": "디 올 뉴 싼타페",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note": "ccNC"
+                }
+            ]
+        },
+        {
+            "name": "그랜저",
+            "models": [
+                {
+                    "modelname": "더 뉴 그랜져(IG)",
+                    "years":[2019,2020,2021,2022],
+                    "maxConnect": 6,
+                    "note": "표준형5W세대"
+                },
+                {
+                    "modelname": "디 올 뉴 그랜져(GN7)",
+                    "years":[2022, 2023, 2024, 2025],
+                    "maxConnect": 6,
+                    "note": "ccNC"
+                }
+            ]
+        },
+        {
+            "name": "포터",
+            "models": [
+                {
+                    "modelname": "포터2",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note": "표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "쏘나타",
+            "models": [
+                {
+                    "modelname": "쏘나타 DN8",
+                    "years":[2019,2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note": "표준형5W세대"
+                },
+                {
+                    "modelname": "쏘나타 디 엣지(DN8 PE)",
+                    "years":[2023,2024,2025],
+                    "maxConnect": 6,
+                    "note": "ccNC"
+                },
+                {
+                    "modelname": "쏘나타 택시",
+                    "years":[2024,2025],
+                    "maxConnect": 6,
+                    "note": "ccNC"
+                }
+            ]
+        },
+        {
+            "name": "아반떼",
+            "models": [
+                {
+                    "modelname": "올 뉴 아반떼(CN7)",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note": "표준형5W세대"
+                },
+                {
+                    "modelname": "아반떼N",
+                    "years":[2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 아반떼N",
+                    "years":[2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "투싼",
+            "models": [
+                {
+                    "modelname": "디 올 뉴 투싼(NX4)",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 투싼",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "스타리아",
+            "models": [
+                {
+                    "modelname": "스타리아(US4)",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "캐스퍼",
+            "models": [
+                {
+                    "modelname": "캐스퍼",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "캐스퍼 일렉트릭",
+                    "years":[2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 캐스퍼",
+                    "years":[2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "코나",
+            "models": [
+                {
+                    "modelname": "더 뉴 코나",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "코나N",
+                    "years":[2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "디 올 뉴 코나(SX2)",
+                    "years":[2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                },
+                {
+                    "modelname": "디 올 뉴 코나(SX2) 일렉트릭",
+                    "years":[2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "펠리세이드",
+            "models": [
+                {
+                    "modelname": "펠리세이드",
+                    "years":[2018,2019,2020,2021,2022],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 펠리세이드",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "아이오닉",
+            "models": [
+                {
+                    "modelname": "아이오닉 5",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "아이오닉 6",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 아이오닉",
+                    "years":[2019,2020,2021,2022],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "아이오닉 5N",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 아이오닉 5",
+                    "years":[2024,2025],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                },
+                {
+                    "modelname": "더 뉴 아이오닉 6",
+                    "years":[2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                },
+                {
+                    "modelname": "아이오닉 9",
+                    "years":[2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "베뉴",
+            "models": [
+                {
+                    "modelname": "베뉴(QX1)",
+                    "years":[2021,2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        }
+    ]
+}

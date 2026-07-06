@@ -1,0 +1,325 @@
+{
+    "oem": "KIA",
+    "lastUpdated": "2026-02-11",
+    "cars": [
+        {
+            "name": "니로",
+            "models": [
+                {
+                    "modelname": "더 뉴 니로",
+                    "years":[2019,2020,2021,2022],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "디올 뉴 니로",
+                    "years":[2022,2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "니로 플러스",
+                    "years":[2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "레이",
+            "models": [
+                {
+                    "modelname": "더 뉴 레이",
+                    "years":[2020,2021,2022,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 기아 레이",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "모닝",
+            "models": [
+                {
+                    "modelname": "모닝 어반",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 모닝",
+                    "years":[2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "모하비",
+            "models": [
+                {
+                    "modelname": "모하비 더 마스터",
+                    "years":[2019,2020,2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "봉고III",
+            "models": [
+                {
+                    "modelname": "봉고III EV",
+                    "years":[2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "셀토스",
+            "models": [
+                {
+                    "modelname": "셀토스",
+                    "years":[2019,2020,2021,2022],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 셀토스",
+                    "years":[2022,2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "스팅어",
+            "models": [
+                {
+                    "modelname": "스팅어 마이스터",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "스포티지",
+            "models": [
+                {
+                    "modelname": "디 올 뉴 스포티지",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 스포티지",
+                    "years":[2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "쏘렌토",
+            "models": [
+                {
+                    "modelname": "쏘렌토(MQ4)",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 쏘렌토",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "쏘울",
+            "models": [
+                {
+                    "modelname": "쏘울 부스터",
+                    "years":[2019,2020,2021,2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "카니발",
+            "models": [
+                {
+                    "modelname": "4세대 카니발(KA4)",
+                    "years":[2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 카니발",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "타스만",
+            "models": [
+                {
+                    "modelname": "타스만(TK1)",
+                    "years":[2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "EV3",
+            "models": [
+                {
+                    "modelname": "EV3",
+                    "years":[2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "EV4",
+            "models": [
+                {
+                    "modelname": "EV4(CT1)",
+                    "years":[2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "EV5",
+            "models": [
+                {
+                    "modelname": "EV5(OV1k)",
+                    "years":[2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "EV6",
+            "models": [
+                {
+                    "modelname": "EV6",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 EV6",
+                    "years":[2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "EV9",
+            "models": [
+                {
+                    "modelname": "EV9",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "K3",
+            "models": [
+                {
+                    "modelname": "더 뉴 K3",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "K5",
+            "models": [
+                {
+                    "modelname": "K5(DL3)",
+                    "years":[2019,2020,2021,2022,2023],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 K5",
+                    "years":[2023,2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "K7",
+            "models": [
+                {
+                    "modelname": "K7 프리미어",
+                    "years":[2019,2020,2021],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                }
+            ]
+        },
+        {
+            "name": "K8",
+            "models": [
+                {
+                    "modelname": "K8",
+                    "years":[2021,2022,2023,2024],
+                    "maxConnect": 6,
+                    "note":"표준형5W세대"
+                },
+                {
+                    "modelname": "더 뉴 K8",
+                    "years":[2024,2025,2026],
+                    "maxConnect": 6,
+                    "note":"ccNC"
+                }
+            ]
+        },
+        {
+            "name": "K9",
+            "models": [
+                {
+                    "modelname": "더 뉴 K9",
+                    "years":[2021,2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"고급형 6세대"
+                }
+            ]
+        },
+        {
+            "name": "그랜버드",
+            "models": [
+                {
+                    "modelname": "그랜버드 슈퍼 프리미엄",
+                    "years":[2020,2021,2022,2023,2024,2025],
+                    "maxConnect": 6,
+                    "note":"고급형 6세대"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/select_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:text="제조사를 \n선택해주세요"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:paddingBottom="12dp"/>
+
+    <!-- breadcrumb -->
+    <TextView
+        android:id="@+id/tvCrumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+
+        android:text="현대 > 그랜저"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/btn_not_list"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="23dp"
+        android:clickable="true"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:text="리스트에 삭제할 차량 정보가 없습니다."
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+        android:textSize="18sp" />
+
+</LinearLayout>
