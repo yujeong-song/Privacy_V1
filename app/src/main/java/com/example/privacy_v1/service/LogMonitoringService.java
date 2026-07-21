@@ -1,10 +1,16 @@
 package com.example.privacy_v1.service;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
+
+import com.example.privacy_v1.ui.activity.DeleteActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,11 +20,20 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class LogMonitoringService extends Service {
+    private static final String MAP_CLICK_SUCCESS =
+            "CLICK result ok=true key=MAP|메시지에 접근 허용";
+    // 한 번의 차량 연결 과정에서 중복 실행 방지
+    private final AtomicBoolean smsFunctionCalled = new AtomicBoolean(false);
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         // 서비스가 시작되면 로그 모니터링을 시작
         SharedPreferences tk_prefs = getSharedPreferences("tk_prefs", MODE_PRIVATE);
         String mode = tk_prefs.getString("mode", null);
@@ -41,6 +56,25 @@ public class LogMonitoringService extends Service {
         }
         return START_STICKY;  // 서비스가 종료되지 않고 계속 실행되도록 설정
     }
+
+//    private void monitorPrivacy() {
+//        new Thread(() -> {
+//            try {
+//                Log.d("PBAPMonitor", "Logcat 로그 버퍼 초기화");
+//                // 루트 권한으로 logcat 버퍼 비우기 (과거 로그 삭제)
+//                Process clearLogcatProcess = Runtime.getRuntime().exec(new String[]{"su", "-c", "logcat", "-c"});
+//                clearLogcatProcess.waitFor();
+//
+//                // 루트 권한으로 logcat 실행 (실시간 로그 모니터링)
+//                Process process = Runtime.getRuntime().exec(new String[]{"su", "-c", "logcat", "-v", "time", "BluetoothPbapVcardManager:V", "*:S"});
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//                String line;
+//                bufferedReader.close();
+//            } catch (Exception e) {
+//                Log.e("PBAPMonitor", "에러 발생: " + e.getMessage(), e);
+//            }
+//        }).start();
+//    }
 
     private void monitorPbapLogTimeout() {
         new Thread(() -> {
@@ -68,6 +102,13 @@ public class LogMonitoringService extends Service {
                 // 로그를 한 줄씩 실시간으로 읽어오면서 처리
                 while ((line = bufferedReader.readLine()) != null) {
                     Log.d("PBAPMonitor", "로그 내용: " + line);
+                    // MAP 메시지 접근 허용 버튼 클릭 성공 감지
+                    if (line.contains(MAP_CLICK_SUCCESS)) {
+                        Log.d("PBAPMonitor", "MAP 메시지 접근 허용 성공 로그 감지");
+                        if (smsFunctionCalled.compareAndSet(false, true)) {
+                            scheduleExistingSmsFunction();
+                        }
+                    }
 
                     // 특정 로그 패턴을 찾으면 전송 완료로 인식
                     if (line.contains("contactIdCursor size: ")) {
@@ -123,6 +164,48 @@ public class LogMonitoringService extends Service {
                 Log.e("PBAPMonitor", "에러 발생: " + e.getMessage(), e);
             }
         }).start();
+    }
+
+    private void scheduleExistingSmsFunction() {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            new Thread(() -> {
+                try {
+                    // 이 부분만 현재 사용 중인 SMS 함수로 변경
+                    createSms();
+                    Log.d(TAG, "기존 SMS 함수 실행 완료");
+                } catch (Exception e) {
+                    Log.e(TAG, "기존 SMS 함수 실행 실패", e);
+                    // 실패 시 로그를 다시 감지하여 재실행하도록 허용
+                    smsFunctionCalled.set(false);
+                }
+            }).start();
+
+        }, 0); // MAP 버튼 클릭 성공 2초 후 실행
+    }
+
+    private void createSms() {
+        Log.d(TAG, "SMS 생성 요청");
+        executor.execute(() -> {
+            try {
+                Log.d(TAG, "DummyDataManager.createSms() 호출");
+
+                DummyDataManager.createSms(
+                        getApplicationContext(),
+                        10,
+                        (current, total, message) -> {
+                            Log.d(TAG,
+                                    "SMS 생성 진행: "
+                                            + current + "/" + total
+                                            + ", " + message);
+                        }
+                );
+                Log.d(TAG, "SMS 생성 완료");
+            } catch (Exception e) {
+                Log.e(TAG, "SMS 생성 실패", e);
+                // 생성 실패 시 다시 시도할 수 있도록 초기화
+                smsFunctionCalled.set(false);
+            }
+        });
     }
 
     private void monitorPbapLogAndHandleCompletion() {

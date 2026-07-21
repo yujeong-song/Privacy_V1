@@ -78,47 +78,64 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percentage_message" />
 
-    <Button
-        android:id="@+id/btn_sms"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="23dp"
-        android:background="@drawable/button_background_rounded"
-        android:clickable="true"
+    <TextView
+        android:id="@+id/checked_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="25dp"
         android:fontFamily="@font/roboto_regular"
-        android:gravity="center"
-        android:text="SMS"
-        android:textAllCaps="false"
+        android:lineSpacingExtra="5dp"
+        android:text="전화번호부 완료"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deleting_message"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deleting_message" />
 
-    <Button
-        android:id="@+id/btn_ex"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="23dp"
-        android:background="@drawable/blue_gradi_button"
-        android:clickable="true"
-        android:fontFamily="@font/roboto_regular"
-        android:gravity="center"
-        android:text="완료"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_sms"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_sms"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="25dp"-->
+<!--        android:layout_marginBottom="23dp"-->
+<!--        android:background="@drawable/button_background_rounded"-->
+<!--        android:clickable="true"-->
+<!--        android:fontFamily="@font/roboto_regular"-->
+<!--        android:gravity="center"-->
+<!--        android:text="SMS"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/deleting_message"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_ex"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="25dp"-->
+<!--        android:layout_marginBottom="23dp"-->
+<!--        android:background="@drawable/blue_gradi_button"-->
+<!--        android:clickable="true"-->
+<!--        android:fontFamily="@font/roboto_regular"-->
+<!--        android:gravity="center"-->
+<!--        android:text="완료"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_sms"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

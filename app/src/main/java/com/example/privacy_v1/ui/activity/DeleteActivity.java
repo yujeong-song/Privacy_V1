@@ -52,7 +52,6 @@ public class DeleteActivity extends AppCompatActivity {
     // ✅ 액티비티 전용 리시버(ACL 끊김 감지)
     private BroadcastReceiver aclReceiver;
     private BluetoothStateReceiver bluetoothStateReceiver;
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @SuppressLint("MissingSuperCall")
     @Override
@@ -79,8 +78,10 @@ public class DeleteActivity extends AppCompatActivity {
         percentText = findViewById(R.id.percentage_message);
         deletingText = findViewById(R.id.deleting_message);
         startDotAnimation();
-        btn_ex = findViewById(R.id.btn_ex);
-        btn_sms = findViewById(R.id.btn_sms);
+//        btn_ex = findViewById(R.id.btn_ex);
+//        btn_sms = findViewById(R.id.btn_sms);
+
+        tk_prefs = getSharedPreferences("tk_prefs", MODE_PRIVATE);
 
         // 안드로이드 5.0(Lollipop) 이상에서 Lock Task 모드 시작
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -90,14 +91,14 @@ public class DeleteActivity extends AppCompatActivity {
 //                startLockTask();
 //            }
 //        }
-        btn_ex.setOnClickListener(view ->{
-            Log.d(TAG, "MAC 생성 횟수 종료. FinalCompleteActivity로 이동");
-            useCredit();
-        });
-        btn_sms.setOnClickListener(view ->{
-            Log.d(TAG, "SMS 생성");
-            createSms();
-        });
+//        btn_ex.setOnClickListener(view ->{
+//            Log.d(TAG, "MAC 생성 횟수 종료. FinalCompleteActivity로 이동");
+//            useCredit();
+//        });
+//        btn_sms.setOnClickListener(view ->{
+//            Log.d(TAG, "SMS 생성");
+//            createSms();
+//        });
 
         resetButton = findViewById(R.id.reset_menu);
         resetButton.setOnClickListener(view ->{
@@ -139,23 +140,23 @@ public class DeleteActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter("com.example.ACTION_PATTERN_DETECTED");
         registerReceiver(patternReceiver, filter);
     }
-    private void createSms() {
-        Log.d(TAG, "버튼3 클릭 - SMS 생성 시작");
-        executor.execute(() -> {
-            try {
-                Log.d(TAG, "createSms() 호출");
-                DummyDataManager.createSms(
-                        DeleteActivity.this,
-                        10,
-                        (current, total, message) -> runOnUiThread(() -> {
-                        })
-                );
-                Log.d(TAG, "SMS 생성 완료");
-            } catch (Exception e) {
-                Log.e(TAG, "SMS 생성 실패", e);
-            }
-        });
-    }
+//    private void createSms() {
+//        Log.d(TAG, "버튼3 클릭 - SMS 생성 시작");
+//        executor.execute(() -> {
+//            try {
+//                Log.d(TAG, "createSms() 호출");
+//                DummyDataManager.createSms(
+//                        DeleteActivity.this,
+//                        10,
+//                        (current, total, message) -> runOnUiThread(() -> {
+//                        })
+//                );
+//                Log.d(TAG, "SMS 생성 완료");
+//            } catch (Exception e) {
+//                Log.e(TAG, "SMS 생성 실패", e);
+//            }
+//        });
+//    }
     private ApiService getApiService() {
         return RetrofitClient.getInstance(this).create(ApiService.class);
     }

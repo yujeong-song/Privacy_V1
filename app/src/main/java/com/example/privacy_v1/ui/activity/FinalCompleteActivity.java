@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.privacy_v1.R;
+import com.example.privacy_v1.bluetooth.BluetoothManager;
 import com.example.privacy_v1.server.model.MonitoringRequest;
 import com.example.privacy_v1.server.model.MonitoringResponse;
 import com.example.privacy_v1.server.network.ApiService;
@@ -35,6 +36,7 @@ public class FinalCompleteActivity extends AppCompatActivity {
     private static final String JSON_FILE_name = "connected_devices.json";
     private SharedPreferences tk_prefs;
     private SharedPreferences sharedPreferences;
+    private BluetoothManager bluetoothManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class FinalCompleteActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("RandomMacPrefs", Context.MODE_PRIVATE);
         int count = SharedPrefsUtil.getCount(this);
         Log.d(TAG, "Step count:: "+count);
+
+//        bluetoothManager = new BluetoothManager(this);
+//        bluetoothManager.unpairAllBondedDevices();   // ✅ 화면 뜨자마자 페어링 해제
 
 
 
