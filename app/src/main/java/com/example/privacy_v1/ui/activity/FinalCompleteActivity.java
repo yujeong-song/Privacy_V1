@@ -3,7 +3,14 @@ package com.example.privacy_v1.ui.activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.media.AudioAttributes;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +31,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Set;
 
@@ -37,6 +46,9 @@ public class FinalCompleteActivity extends AppCompatActivity {
     private SharedPreferences tk_prefs;
     private SharedPreferences sharedPreferences;
     private BluetoothManager bluetoothManager;
+    private Ringtone alarmRingtone;
+    private final Handler handler =
+            new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +59,10 @@ public class FinalCompleteActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("RandomMacPrefs", Context.MODE_PRIVATE);
         int count = SharedPrefsUtil.getCount(this);
         Log.d(TAG, "Step count:: "+count);
+        if (savedInstanceState == null) {
+            playAlarmSound();
+        }
+
 
 //        bluetoothManager = new BluetoothManager(this);
 //        bluetoothManager.unpairAllBondedDevices();   // ✅ 화면 뜨자마자 페어링 해제
@@ -72,8 +88,12 @@ public class FinalCompleteActivity extends AppCompatActivity {
         //서버에서 받아온 크레딧
         int credit =  tk_prefs.getInt("amount", 0);
         String time = tk_prefs.getString("timestamp", null);
+//        LocalDateTime ended_at_now = LocalDateTime.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        String ended_at = ended_at_now.format(formatter);
         TextView dateTextView = findViewById(R.id.deleted_date_info);
-        dateTextView.setText("" +time);
+//        dateTextView.setText("" +ended_at);
+        dateTextView.setText("" + time);
         TextView creditTextView = findViewById(R.id.deleted_credit_info);
         creditTextView.setText("" + credit);
 
@@ -258,6 +278,57 @@ public class FinalCompleteActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e(TAG, "재시작 중 오류 발생: ", e);
         }
+    }
+    private void playAlarmSound() {
+        Uri alarmUri = RingtoneManager.getDefaultUri(
+                RingtoneManager.TYPE_ALARM
+        );
+
+        // 기본 알람음이 없으면 알림음 사용
+        if (alarmUri == null) {
+            alarmUri = RingtoneManager.getDefaultUri(
+                    RingtoneManager.TYPE_NOTIFICATION
+            );
+        }
+
+        alarmRingtone = RingtoneManager.getRingtone(this, alarmUri);
+
+        if (alarmRingtone != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                alarmRingtone.setAudioAttributes(
+                        new AudioAttributes.Builder()
+                                .setUsage(AudioAttributes.USAGE_ALARM)
+                                .setContentType(
+                                        AudioAttributes.CONTENT_TYPE_SONIFICATION
+                                )
+                                .build()
+                );
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                alarmRingtone.setLooping(false);
+            }
+
+            alarmRingtone.play();
+
+            // 5초 후 강제 정지
+            handler.postDelayed(this::stopAlarmSound, 3000);
+        }
+    }
+
+    private void stopAlarmSound() {
+        if (alarmRingtone != null && alarmRingtone.isPlaying()) {
+            alarmRingtone.stop();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // 다른 화면으로 이동하면 소리 정지
+        handler.removeCallbacksAndMessages(null);
+        stopAlarmSound();
     }
 
 }

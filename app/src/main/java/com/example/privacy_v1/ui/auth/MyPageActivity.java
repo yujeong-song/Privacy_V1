@@ -32,7 +32,7 @@ public class MyPageActivity extends AppCompatActivity {
 
         ImageButton beforeButton = findViewById(R.id.mypage_before);
         beforeButton.setOnClickListener(v -> {
-            startActivity(new Intent(MyPageActivity.this, MainActivity.class));
+//            startActivity(new Intent(MyPageActivity.this, MainActivity.class));
             finish();
         });
 

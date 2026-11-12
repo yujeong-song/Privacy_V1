@@ -36,22 +36,28 @@ public class LogMonitoringService extends Service {
 
         // 서비스가 시작되면 로그 모니터링을 시작
         SharedPreferences tk_prefs = getSharedPreferences("tk_prefs", MODE_PRIVATE);
-        String mode = tk_prefs.getString("mode", null);
+        String mode = tk_prefs.getString("selected_nav_action", null);
+        Log.d(TAG, "selected_nav_action:"+mode);
+
         // null(또는 빈값)이라면 기본값("Normal")로 치환
         if (mode == null || mode.trim().isEmpty()) {
-            mode = "Pro";
+            mode = "Gen5W";
         }
-
         switch (mode) {
-            case "Standard":
+            case "Gen5W":
+                Log.d(TAG, "Gen5W실행");
                 monitorPbapLogTimeout();
                 break;
             case "bmw":
                 bmwmonitorPbapLogAndHandleCompletion();
                 break;
-            case "Pro":
-            default:
+            case "Eco5":
+                Log.d(TAG, "Eco5실행");
                 monitorPbapLogAndHandleCompletion();
+                break;
+            default:
+                Log.d(TAG, "default실행");
+                monitorPbapLogTimeout();
                 break;
         }
         return START_STICKY;  // 서비스가 종료되지 않고 계속 실행되도록 설정
@@ -89,7 +95,7 @@ public class LogMonitoringService extends Service {
                 Log.d("PBAPMonitor", "로그 버퍼가 비워졌습니다.");
 
                 // 루트 권한으로 logcat 실행 (실시간 로그 모니터링)
-                Process process = Runtime.getRuntime().exec(new String[] {"su", "-c", "logcat", "-v", "time", "BluetoothPbapVcardManager:V", "*:S"});
+                Process process = Runtime.getRuntime().exec(new String[] {"su", "-c", "logcat", "-v", "time", "BluetoothPbapVcardManager:V", "BT_AutoClick:V", "*:S"});
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 String line;
                 int matchCount = 0; // 패턴이 발견된 횟수 카운팅 변수
@@ -137,7 +143,7 @@ public class LogMonitoringService extends Service {
                                         // 프로세스 종료 (선택 사항, 필요에 따라)
                                         process.destroy();
                                     }
-                                }, 60000); // 180,000밀리초 == 3분 60000밀리초 = 1분
+                                }, 30000); // 180,000밀리초 == 3분 60000밀리초 = 1분
                                 timerScheduled = true;
                             }
                         }
@@ -238,7 +244,7 @@ public class LogMonitoringService extends Service {
                         Log.d("PBAPMonitor", "contactIdCursor size:  패턴 발견 (횟수: " + matchCount + ")");
 
                         // 두 번째로 패턴이 발견되었을 때 처리
-                        if (matchCount == 2) {
+                        if (matchCount == 101) {
                             // msg manager 실행으로 넘기기
                             // msg manager가 끝났을 때 아래 사항 실행시키기
                             // 패턴이 두 번째로 감지되었을 때 싱글톤 클래스에 상태 저장

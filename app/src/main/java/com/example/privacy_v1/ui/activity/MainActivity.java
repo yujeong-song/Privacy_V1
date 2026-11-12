@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //API 시작 트리거 전송
                     //로그인 정보 확인 //기기 안에 로그인 정보 넣어놓기
+//                v.setSelected(true); // 선택된 모양 유지
                 Intent intent = new Intent(MainActivity.this, PrivacyStartActivity.class);
                 startActivity(intent);
 //                Intent intent = new Intent(MainActivity.this, MakerSelectActivity.class);
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_go_to_mypage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                v.setSelected(true); // 선택된 모양 유지
                 Intent intent = new Intent(MainActivity.this, MyPageActivity.class);
                 startActivity(intent);
                 // 버튼 클릭 시 Toast 메시지 표시

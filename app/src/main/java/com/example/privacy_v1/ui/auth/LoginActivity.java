@@ -17,6 +17,7 @@ import com.example.privacy_v1.server.model.LoginRequest;
 import com.example.privacy_v1.server.model.LoginResponse;
 import com.example.privacy_v1.server.network.ApiService;
 import com.example.privacy_v1.server.network.RetrofitClient;
+import com.example.privacy_v1.service.LogMonitoringService;
 import com.example.privacy_v1.ui.activity.CheckingBluetoothActivity;
 import com.example.privacy_v1.ui.activity.MainActivity;
 
@@ -115,6 +116,8 @@ public class LoginActivity extends AppCompatActivity {
         if (devicename != null && deviceMac != null) {
             // 블루투스 연결 화면으로 이동
             Log.d(TAG, "블루투스 연결한 기록 있어 블루투스연결진행");
+            Intent serviceIntent = new Intent(this, LogMonitoringService.class);
+            startService(serviceIntent);
             SharedPreferences tk_prefs = getSharedPreferences("tk_prefs", MODE_PRIVATE);
             String vehi_num = tk_prefs.getString("vehicle_number", null);
             SharedPreferences sharedPreferences = getSharedPreferences("RandomMacPrefs", Context.MODE_PRIVATE);

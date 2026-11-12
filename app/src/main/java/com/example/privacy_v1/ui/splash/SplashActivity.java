@@ -141,6 +141,7 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences ble_prefs = getSharedPreferences("bluetooth_prefs", MODE_PRIVATE);
         String devicename = ble_prefs.getString("device_name", null);
         String deviceMac = ble_prefs.getString("device_mac", null);
+        Log.d(TAG, devicename+"+"+deviceMac);
 
         if (devicename != null && deviceMac != null) {
             // 블루투스 check 화면으로 이동

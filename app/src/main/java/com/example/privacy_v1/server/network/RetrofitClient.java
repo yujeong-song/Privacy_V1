@@ -9,7 +9,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "http://220.149.254.67:8081/"; //개발용 서버url
+    private static final String BASE_URL = "http://220.149.254.67/";
+//    private static final String BASE_URL = "http://220.149.254.67:8081/"; //개발용 서버url
     private static Retrofit instance;      // 토큰 없는 요청용
     private static Retrofit authInstance;  // 토큰 있는 요청용
     public static Retrofit getInstance() {

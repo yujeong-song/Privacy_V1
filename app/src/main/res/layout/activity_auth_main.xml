@@ -14,7 +14,7 @@
         android:contentDescription="Logo"
         android:gravity="center"
         android:scaleType="centerInside"
-        android:src="@drawable/acat_logo_spizen_ver"
+        android:src="@drawable/acat_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

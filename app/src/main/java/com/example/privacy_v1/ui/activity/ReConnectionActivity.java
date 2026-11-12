@@ -15,7 +15,7 @@ import com.example.privacy_v1.bluetooth.BluetoothManager;
 
 import com.example.privacy_v1.R;
 
-public class ReConnectionActivity extends AppCompatActivity {
+public class                                 ReConnectionActivity extends AppCompatActivity {
     private static final String TAG = "ReConnectionActivity";
     private BluetoothManager bluetoothManager;
     private Button reconnectionButton;

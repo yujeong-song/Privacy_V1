@@ -1,0 +1,42 @@
+[
+    {
+        "id": "benz",
+        "name": "벤츠",
+        "tabLogo": "ic_benz_tab",
+        "itemLogo": "img_benz_circle",
+        "items": [
+            {
+                "name": "E클래스",
+                "action": "Gen5W",
+                "num": 5
+            }
+        ]
+    },
+    {
+        "id": "bmw",
+        "name": "BMW",
+        "tabLogo": "ic_bmw_tab",
+        "itemLogo": "img_bmw_circle",
+        "items": [
+            {
+                "name": "5시리즈",
+                "action": "bmw",
+                "num": 20
+            }
+        ]
+    },
+    {
+        "id": "audi",
+        "name": "아우디",
+        "tabLogo": "ic_audi_tab",
+        "items": [
+        ]
+    },
+    {
+        "id": "tesla",
+        "name": "테슬라",
+        "tabLogo": "ic_tesla_tab",
+        "items": [
+        ]
+    }
+]

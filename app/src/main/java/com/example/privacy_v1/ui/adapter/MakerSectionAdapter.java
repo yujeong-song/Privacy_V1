@@ -133,7 +133,7 @@ public class MakerSectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(itemView);
             logoRing = itemView.findViewById(R.id.logoRing);
             ivLogo = itemView.findViewById(R.id.ivLogo);
-            tvName = itemView.findViewById(R.id.tvMakerName);
+//            tvName = itemView.findViewById(R.id.tvMakerName);
         }
     }
 
@@ -157,9 +157,9 @@ public class MakerSectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private int logoResId(Context ctx, String makerKey) {
         if (makerKey == null) return android.R.drawable.ic_menu_gallery;
         switch (makerKey) {
-            case "hyundai": return R.drawable.hyundai;
-            case "kia": return R.drawable.kia;
-            case "genesis": return R.drawable.genesis;
+            case "hyundai": return R.drawable.img_hyundai_circle;
+            case "kia": return R.drawable.img_kia_circle;
+            case "genesis": return R.drawable.img_genesis_circle;
             default: return android.R.drawable.ic_menu_gallery;
         }
     }

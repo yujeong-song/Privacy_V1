@@ -24,8 +24,10 @@ import com.example.privacy_v1.server.model.UseCreditResponse;
 import com.example.privacy_v1.server.network.ApiService;
 import com.example.privacy_v1.server.network.RetrofitClient;
 import com.example.privacy_v1.service.DummyDataManager;
+import com.example.privacy_v1.ui.adapter.StepProgressAdapter;
 import com.example.privacy_v1.ui.dialog.CustomResetDialog;
 import com.example.privacy_v1.R;
+import com.example.privacy_v1.utils.SharedPrefsUtil;
 
 import java.sql.Time;
 import java.time.LocalDateTime;
@@ -45,6 +47,7 @@ public class DeleteActivity extends AppCompatActivity {
     private ImageButton resetButton;
     private Button btn_ex,btn_sms;
     private SharedPreferences tk_prefs;
+    private int MAX_COUNT;
     private TextView deletingText;
     private Handler handler = new Handler();
     private boolean isAnimating = true; // 애니메이션 상태를 제어
@@ -82,6 +85,12 @@ public class DeleteActivity extends AppCompatActivity {
 //        btn_sms = findViewById(R.id.btn_sms);
 
         tk_prefs = getSharedPreferences("tk_prefs", MODE_PRIVATE);
+        StepProgressAdapter stepProgressView =
+                findViewById(R.id.stepProgressView);
+        int num = tk_prefs.getInt("selected_num",0);
+        MAX_COUNT = num;
+        int count = SharedPrefsUtil.getCount(this);
+        stepProgressView.setStepInfo(num, count);
 
         // 안드로이드 5.0(Lollipop) 이상에서 Lock Task 모드 시작
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -15,7 +15,7 @@
         android:contentDescription="Logo"
         android:gravity="center"
         android:scaleType="centerInside"
-        android:src="@drawable/acat_logo_spizen_ver"
+        android:src="@drawable/acat_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -66,22 +66,26 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center_vertical"
-            android:background="@drawable/main_button"
-            android:padding="16dp">
+            android:background="@drawable/main_btn_selector"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/go_delete_icon" />
+                android:src="@drawable/go_delete_icon"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="개인정보 삭제하기"
+                android:text="개인정보 삭제"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:fontFamily="@font/roboto_bolded"
-                android:layout_marginTop="10dp" />
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"/>
         </LinearLayout>
 
         <!-- 두 번째 버튼 -->
@@ -92,23 +96,27 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center_vertical"
-            android:background="@drawable/main_button"
+            android:background="@drawable/main_btn_selector"
             android:padding="16dp"
-            android:layout_marginStart="16dp">
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/mypage_icon" />
+                android:src="@drawable/mypage_icon"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="마이페이지로 가기"
+                android:text="마이페이지"
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/roboto_bolded"
+                android:fontFamily="@font/roboto_bold"
                 android:textSize="18sp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"/>
 
         </LinearLayout>
 

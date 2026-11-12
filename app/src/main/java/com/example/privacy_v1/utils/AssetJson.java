@@ -19,7 +19,7 @@ public class AssetJson {
 //            throw new RuntimeException("Failed to read assets/" + filename, e);
 //        }
 //    }
-private static final String TAG = "AssetJson";
+    private static final String TAG = "AssetJson";
 
     public static String read(Context ctx, String fileName) throws Exception {
         String safe = normalizeFileName(fileName);

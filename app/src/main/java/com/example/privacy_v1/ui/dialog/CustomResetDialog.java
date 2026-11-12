@@ -179,13 +179,30 @@ public class CustomResetDialog extends Dialog{
         String id = tk_prefs.getString("device_id", null);
         String vehiNum = tk_prefs.getString("vehicle_number", null);
         String started_at = tk_prefs.getString("started_at", null);
-        String odometer_info = tk_prefs.getString("tot_dist",null);
-        String mode_info = tk_prefs.getString("mode",null);
         LocalDateTime ended_at_now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String ended_at = ended_at_now.format(formatter);
+        String odometer_info = tk_prefs.getString("tot_dist",null);
+        String mode_info = tk_prefs.getString("version",null);
+        String manufacturer = tk_prefs.getString("selected_brand_name",null);
+        String avn_version = tk_prefs.getString("selected_nav_name",null);
+        String country = tk_prefs.getString("country",null);
+
         // 2. IdRequest 모델 생성
-        UseCreditRequest useCreditRequest = new UseCreditRequest(id,vehiNum,use_result,started_at,ended_at,odometer_info,mode_info);
+//        UseCreditRequest(String device_id, String vehicle_number, String use_result, String odometer, String version, String manufacturer, String avn_version, String country, String started_at, String ended_at)
+        UseCreditRequest useCreditRequest = new UseCreditRequest(id,vehiNum,use_result,odometer_info,mode_info,manufacturer,avn_version,country, started_at,ended_at);
+//        String use_result = "DONE";
+//        // 1. SharedPreferences에서 id 꺼내기
+//        String id = tk_prefs.getString("device_id", null);
+//        String vehiNum = tk_prefs.getString("vehicle_number", null);
+//        String started_at = tk_prefs.getString("started_at", null);
+//        String odometer_info = tk_prefs.getString("tot_dist",null);
+//        String mode_info = tk_prefs.getString("mode",null);
+//        LocalDateTime ended_at_now = LocalDateTime.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        String ended_at = ended_at_now.format(formatter);
+//        // 2. IdRequest 모델 생성
+//        UseCreditRequest useCreditRequest = new UseCreditRequest(id,vehiNum,use_result,started_at,ended_at,odometer_info,mode_info);
         // 3. ApiService 생성 (토큰 포함 Interceptor 붙은 Retrofit 인스턴스 사용)
         ApiService apiService = RetrofitClient.getInstance(context).create(ApiService.class);
         // 4. 서버로 전송

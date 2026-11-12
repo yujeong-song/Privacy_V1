@@ -1,0 +1,81 @@
+[
+    {
+        "id": "kia",
+        "name": "기아",
+        "tabLogo": "ic_kia_tab",
+        "itemLogo": "img_kia_circle",
+        "items": [
+            {
+                "name": "경제형 5세대",
+                "action": "Eco5",
+                "num": 5
+            },
+            {
+                "name": "표준형 5세대",
+                "action": "Gen5W",
+                "num": 5
+            },
+            {
+                "name": "표준형 5W세대",
+                "action": "Gen5W",
+                "num": 6
+            },
+            {
+                "name": "ccNC",
+                "action": "Gen5W",
+                "num": 6
+            }
+        ]
+    },
+    {
+        "id": "hyundai",
+        "name": "현대",
+        "tabLogo": "ic_hyundai_tab",
+        "itemLogo": "img_hyundai_circle",
+        "items": [
+            {
+                "name": "경제형 5세대",
+                "action": "Eco5",
+                "num": 5
+            },
+            {
+                "name": "표준형 5세대",
+                "action": "Gen5W",
+                "num": 5
+            },
+            {
+                "name": "표준형 5W세대",
+                "action": "Gen5W",
+                "num": 6
+            },
+            {
+                "name": "ccNC",
+                "action": "Gen5W",
+                "num": 6
+            }
+        ]
+    },
+    {
+        "id": "genesis",
+        "name": "제네시스",
+        "tabLogo": "ic_genesis_tab",
+        "itemLogo": "img_genesis_circle",
+        "items": [
+            {
+                "name": "표준형 5W세대",
+                "action": "Gen5W",
+                "num": 6
+            },
+            {
+                "name": "고급형 6세대",
+                "action": "Gen5W",
+                "num": 6
+            },
+            {
+                "name": "ccIC / ccIC27",
+                "action": "Gen5W",
+                "num": 6
+            }
+        ]
+    }
+]

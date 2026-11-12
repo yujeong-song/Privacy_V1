@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -28,10 +30,10 @@ public class PrivacyStartActivity extends AppCompatActivity {
     private Button privacy_start;
     private BluetoothAdapter bluetoothAdapter;
     private EditText etVehiNum, tot_dist_num;
-    private String mode;
+    private String country;
     private int num;
     private ConstraintLayout start_activity;
-    private LinearLayout pro_btn,standard_btn;
+    private LinearLayout domestic_btn,overseas_btn;
 
 
 
@@ -44,47 +46,40 @@ public class PrivacyStartActivity extends AppCompatActivity {
 
         privacy_start = findViewById(R.id.btn_privacy_start);
         etVehiNum = findViewById(R.id.editVehiNum);
-        pro_btn = findViewById(R.id.btn_pro);
-        standard_btn = findViewById(R.id.btn_standard);
+        domestic_btn = findViewById(R.id.btn_domestic);
+        overseas_btn = findViewById(R.id.btn_overseas);
 //        btn_bmw = findViewById(R.id.btn_bmw);
         tot_dist_num = findViewById(R.id.tot_dist);
 
-        start_activity.setOnTouchListener(new View.OnTouchListener()
-        {
+        start_activity.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
-                hideKeyboard();
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    hideKeyboard(v);
+                }
                 return false;
             }
         });
+        selectDomestic();
 
-        pro_btn.setOnClickListener(new View.OnClickListener() {
+
+        domestic_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pro_btn.setSelected(true);
-                standard_btn.setSelected(false);
-                mode ="Pro";
-                num = 6;
-                SharedPreferences.Editor editor = getSharedPreferences("tk_prefs", MODE_PRIVATE).edit();
-                editor.putString("mode", mode);
-                editor.putInt("num", num);
-                editor.apply();
-                hideKeyboard();
+                selectDomestic();
+                hideKeyboard(v);
             }
         });
-        standard_btn.setOnClickListener(new View.OnClickListener() {
+        overseas_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                standard_btn.setSelected(true);
-                pro_btn.setSelected(false);
-                mode ="Standard";
-                num = 6;
+                overseas_btn.setSelected(true);
+                domestic_btn.setSelected(false);
+                country ="overseas";
                 SharedPreferences.Editor editor = getSharedPreferences("tk_prefs", MODE_PRIVATE).edit();
-                editor.putString("mode", mode);
-                editor.putInt("num", num);
+                editor.putString("country", country);
                 editor.apply();
-                hideKeyboard();
+                hideKeyboard(v);
             }
         });
 //        btn_bmw.setOnClickListener(new View.OnClickListener() {
@@ -100,20 +95,101 @@ public class PrivacyStartActivity extends AppCompatActivity {
 //            }
 //        });
 
+//        String vehiNum = etVehiNum.getText().toString().trim();
+//        String tot_distNum = tot_dist_num.getText().toString().trim();
+//        updateNextButton(false);
+//        if (vehiNum.isEmpty() || tot_distNum.isEmpty()) {
+//            return;
+//        }else {
+//            updateNextButton(true);
+//        }
+        privacy_start.setEnabled(false);
+        privacy_start.setAlpha(0.5f); // 비활성 상태가 보이도록 흐리게 표시
+
+
+        TextWatcher inputWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateStartButtonState();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        };
+
+        etVehiNum.addTextChangedListener(inputWatcher);
+        tot_dist_num.addTextChangedListener(inputWatcher);
+
+// 기존 입력값이 있을 수도 있으므로 실제 상태를 다시 확인
+        updateStartButtonState();
+
+// 기존 입력값이 있을 때도 활성화 상태를 올바르게 설정
+        updateStartButtonState();
+
         privacy_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendVehiNum();
+                if (country.equals("domestic")){
+                    sendVehiNum();
+                    Intent intent = new Intent(PrivacyStartActivity.this, NavSelectActivity.class);
+                    startActivity(intent);
+                }
+                if (country.equals("overseas")){
+                    sendVehiNum();
+                    Intent intent = new Intent(PrivacyStartActivity.this, NavSelectActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }
 
-    void hideKeyboard()
-    {
-        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    private void selectDomestic() {
+        domestic_btn.setSelected(true);
+        overseas_btn.setSelected(false);
+
+        country = "domestic";
+
+        SharedPreferences.Editor editor =
+                getSharedPreferences("tk_prefs", MODE_PRIVATE).edit();
+
+        editor.putString("country", country);
+        editor.apply();
     }
 
+    private void updateStartButtonState() {
+        boolean ready =
+                !etVehiNum.getText().toString().trim().isEmpty()
+                        && !tot_dist_num.getText().toString().trim().isEmpty();
+
+        privacy_start.setEnabled(ready);
+        privacy_start.setAlpha(ready ? 1.0f : 0.5f);
+    }
+
+    private void hideKeyboard(View view) {
+        View target = getCurrentFocus();
+
+        if (target == null) {
+            target = view;
+        }
+
+        if (target == null || target.getWindowToken() == null) {
+            return;
+        }
+
+        InputMethodManager inputManager =
+                (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (inputManager != null) {
+            inputManager.hideSoftInputFromWindow(
+                    target.getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS
+            );
+        }
+    }
     private void selectMonitoring(){
         Intent serviceIntent = new Intent(this, LogMonitoringService.class);
         startService(serviceIntent);
@@ -148,8 +224,8 @@ public class PrivacyStartActivity extends AppCompatActivity {
         editor.putString("tot_dist", tot_distNum);
         editor.apply();
 
-        Intent intent = new Intent(PrivacyStartActivity.this, PrivacyConfirmActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(PrivacyStartActivity.this, NavSelectActivity.class);
+//        startActivity(intent);
     }
 
 }

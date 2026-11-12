@@ -10,7 +10,7 @@ public class StartedRequest {
     private String odometer;
     private String started_at;
     private String result;
-    public StartedRequest(String device_id, String vehicle_number, String version, String manufacturer, String avn_version, String country, String odometer) {
+    public StartedRequest(String device_id, String vehicle_number, String version, String manufacturer, String avn_version, String country, String odometer, String started_at, String result) {
         this.device_id = device_id;
         this.vehicle_number = vehicle_number;
         this.version = version;
@@ -18,6 +18,8 @@ public class StartedRequest {
         this.avn_version = avn_version;
         this.country = country;
         this.odometer = odometer;
+        this.started_at = started_at;
+        this.result = result;
     }
     public StartedRequest(String device_id, String vehicle_number) {
         this.device_id = device_id;

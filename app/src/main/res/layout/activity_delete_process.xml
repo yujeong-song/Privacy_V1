@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.DeleteActivity">
+    tools:context=".ui.activity.DeleteActivity"
+    android:background="@drawable/activity_background">
 
     <!-- ACAT 로고 -->
     <ImageView
@@ -16,10 +17,22 @@
         android:contentDescription="Logo"
         android:gravity="center"
         android:scaleType="centerInside"
-        android:src="@drawable/acat_logo_spizen_ver"
+        android:src="@drawable/acat_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.privacy_v1.ui.adapter.StepProgressAdapter
+        android:id="@+id/stepProgressView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        />
 
     <ImageButton
         android:id="@+id/reset_menu"
@@ -41,22 +54,23 @@
         android:id="@+id/deleting_icon"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="130dp"
-        android:src="@drawable/deleting_icon"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/deletion_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintTop_toBottomOf="@id/stepProgressView" />
 
     <TextView
         android:id="@+id/percentage_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/roboto_bolded"
         android:text="개인정보 삭제 중입니다..."
         android:textAlignment="center"
-        android:textColor="#798EE5"
+        android:textColor="#D7C9FF"
         android:textSize="22sp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/deleting_icon" />
@@ -70,30 +84,31 @@
         android:layout_marginRight="25dp"
         android:fontFamily="@font/roboto_regular"
         android:lineSpacingExtra="5dp"
-        android:text="잠시만 기다려 주세요!"
+        android:text="삭제가 완료될 때까지 차량 시스템 및\n앱을 조작하지 마세요."
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:background="@android:color/transparent"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/percentage_message" />
 
-    <TextView
-        android:id="@+id/checked_call"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="25dp"
-        android:fontFamily="@font/roboto_regular"
-        android:lineSpacingExtra="5dp"
-        android:text="전화번호부 완료"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="19sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deleting_message" />
+<!--    <TextView-->
+<!--        android:id="@+id/checked_call"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="25dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginRight="25dp"-->
+<!--        android:fontFamily="@font/roboto_regular"-->
+<!--        android:lineSpacingExtra="5dp"-->
+<!--        android:text="전화번호부 완료"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="19sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/deleting_message" />-->
 
 <!--    <Button-->
 <!--        android:id="@+id/btn_sms"-->
@@ -136,6 +151,5 @@
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

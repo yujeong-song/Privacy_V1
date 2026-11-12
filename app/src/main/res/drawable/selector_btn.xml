@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택 항목이 있어서 다음 버튼이 활성화된 상태 -->
+    <item android:state_enabled="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#514EC2"/>
+            <corners android:radius="13dp"/>
+        </shape>
+    </item>
+
+    <!-- 선택 항목이 없어서 비활성화된 상태 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#373449"/>
+            <corners android:radius="13dp"/>
+        </shape>
+    </item>
+
+</selector>
